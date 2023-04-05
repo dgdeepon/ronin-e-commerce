@@ -10,11 +10,13 @@ import {
   useColorModeValue,
   Stack,
   Input,
+  Text,
+  Divider,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
-import { faBagShopping } from '@fortawesome/free-solid-svg-icons';
+import { faBagShopping, faMagnifyingGlass, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const Links = ['MEN', 'WOMEN', 'MOBILE COVERS'];
 
@@ -25,6 +27,9 @@ const NavLink = ({ children }) => (
     rounded={'md'}
     _hover={{
       textDecoration: 'none',
+      borderBottom:'4px',
+      borderColor:'#FF6000',
+      borderRadius:0,
       bg: useColorModeValue('gray.200', 'gray.700'),
     }}
     href={'#'}>
@@ -47,7 +52,7 @@ export default function Navbar() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'} margin='auto'>
-            <Box>Logo</Box>
+            <Box as='b'>RONIN</Box>
             <HStack
               as={'nav'}
               spacing={4}
@@ -57,7 +62,11 @@ export default function Navbar() {
               ))}
             </HStack>
             <HStack>
-          <Input type={'search'} width='100%' placeholder='Search by product, category or collection'/>
+                <HStack border={'1px'} borderColor={'gray.400'} borderRadius={'5px'}>
+                    <FontAwesomeIcon icon={faMagnifyingGlass} style={{width:'20%'}}/>
+          <Input type={'search'} width='100%' placeholder='Search by product, category or collection' border={'0'} _focus={{boxShadow:'none'}}/>
+                </HStack>
+                <Text _hover={{cursor:'pointer'}}>Login</Text>
           <FontAwesomeIcon icon={faHeart}/>
           <FontAwesomeIcon icon={faBagShopping}/>
             </HStack>
@@ -74,8 +83,6 @@ export default function Navbar() {
           </Box>
         ) : null}
       </Box>
-
-      <Box p={4}>Main Content Here</Box>
     </>
   );
 }
