@@ -1,25 +1,25 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getFirestore } from "firebase/firestore";
-
+import {getDatabase} from 'firebase/database'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyAfwcTsQcTy14KnZ7yXdMN1B-PTOXpNvDQ",
-  authDomain: "ronin-e-commerce.firebaseapp.com",
-  databaseURL: "https://ronin-e-commerce-default-rtdb.firebaseio.com",
-  projectId: "ronin-e-commerce",
-  storageBucket: "ronin-e-commerce.appspot.com",
-  messagingSenderId: "803509673535",
-  appId: "1:803509673535:web:25ecb517f6bce81a8b228a",
-  measurementId: "G-J1SYTQQR3J"
+  apiKey: "AIzaSyCJDEhgblcPVCg-ZJ4GW4Mu21yZI382Ahk",
+  authDomain: "ronin-e-commerce-ba438.firebaseapp.com",
+  projectId: "ronin-e-commerce-ba438",
+  storageBucket: "ronin-e-commerce-ba438.appspot.com",
+  messagingSenderId: "27715068476",
+  appId: "1:27715068476:web:4fbb77b5d029298058d939",
+  measurementId: "G-5DSWCSFTEB"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-export const db=getFirestore(app);
+const db=getDatabase(app);
+
+export {db};
