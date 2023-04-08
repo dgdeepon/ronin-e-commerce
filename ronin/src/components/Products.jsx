@@ -2,15 +2,16 @@ import { Container } from '@chakra-ui/react';
 import axios from 'axios'
 import React from 'react'
 import {db} from '../firebase/firebase';
-import { collection, doc,getDoc} from 'firebase/firestore';
+import { collection, doc,getDoc, onSnapshot, setDoc} from 'firebase/firestore';
 
 export default function Products() {
 
-    async function main(){
+    function main(){
         const data=collection(db,'products');
         console.log(data);
-        const mainData=getDoc(data);
-        console.log(mainData);
+        const mainData= onSnapshot(data,(res)=>{
+            console.log(res);
+        })
     }
 
     main();
