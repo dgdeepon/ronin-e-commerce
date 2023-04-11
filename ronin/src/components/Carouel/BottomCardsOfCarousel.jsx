@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 const imageArray = [
   {
     image:
@@ -44,20 +45,23 @@ const imageArray = [
 ];
 export default function BottomCardsOfCarousel() {
   return (
-    <Box pb={50}>
+    <Box pb={50} bg="#fff">
       <Flex width={"80%"} margin={"auto"} gap={6}>
         {imageArray.length > 0 &&
           imageArray.map(({ image, text }) => {
             return (
-              <Box>
-                <Image src={image} width={"100%"} />
-                <Text
-                  textAlign={"center"}
-                  fontSize={"12px"}
-                  fontWeight={600}>
-                  {text}
-                </Text>
-              </Box>
+              <Link to="#">
+                <Box>
+                  <Image src={image} width={"100%"} />
+                  <Text
+                    textAlign={"center"}
+                    fontSize={"12px"}
+                    fontWeight={600}
+                    mt={5}>
+                    {text}
+                  </Text>
+                </Box>
+              </Link>
             );
           })}
       </Flex>
