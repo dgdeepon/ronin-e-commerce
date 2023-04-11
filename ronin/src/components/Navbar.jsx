@@ -31,7 +31,7 @@ const NavLink = ({ children }) => (
     rounded={"md"}
     _hover={{
       textDecoration: "none",
-      // borderBottom: "4px",
+      borderBottom: "4px",
       borderColor: "#FF6000",
       borderRadius: 0,
       bg: useColorModeValue("gray.200", "gray.700"),
@@ -74,10 +74,13 @@ export default function Navbar() {
                   <Input
                     placeholder="Search by product, category or collection"
                     fontSize={"11px"}
+                    color={"#fff"}
                     _focus={{
                       boxShadow: "none",
                       outline: "none",
-                      border: "none",
+                      border: "1px solid #eaebeb",
+                      color: "gray.600",
+                      background: "#fff",
                     }}
                   />
                 </InputGroup>
