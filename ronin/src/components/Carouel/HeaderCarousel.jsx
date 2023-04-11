@@ -9,22 +9,8 @@ import {
   faCircleChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-const imageArray = [
-  {
-    image:
-      "https://images.bewakoof.com/uploads/grid/app/college-banner-common-desktop-1681194853.jpg",
-  },
-  {
-    image:
-      "https://images.bewakoof.com/uploads/grid/app/1x1-fresh-summer-arrivals-common.jpg",
-  },
-  {
-    image:
-      "https://images.bewakoof.com/uploads/grid/app/1x1-joggers-common-w-bdayunit-1680263895.jpg",
-  },
-];
-export default function HeaderCarousel() {
-  const top = useBreakpointValue({ base: "90%", md: "30%" });
+export default function HeaderCarousel({ imageArray }) {
+  const top = useBreakpointValue({ base: "90%", md: "50%" });
   const side = useBreakpointValue({ base: "30%", md: "40px" });
   const [slider, setSlider] = React.useState(imageArray);
 
@@ -37,7 +23,7 @@ export default function HeaderCarousel() {
     pauseOnHover: false,
   };
   return (
-    <Box overflow={"hidden"}>
+    <Box overflow={"hidden"} position={"relative"} bg="#fff">
       <IconButton
         _hover={{
           background: "tranparent",
@@ -80,13 +66,6 @@ export default function HeaderCarousel() {
             );
           })}
       </Slider>
-      <Box mt={3.5}>
-        <Image
-          src="https://images.bewakoof.com/uploads/grid/app/thin-strip-non-tribe-desktop-1681214905.jpg"
-          width={"100%"}
-          objectFit={"cover"}
-        />
-      </Box>
     </Box>
   );
 }
