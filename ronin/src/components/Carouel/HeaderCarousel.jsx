@@ -24,7 +24,7 @@ const imageArray = [
   },
 ];
 export default function HeaderCarousel() {
-  const top = useBreakpointValue({ base: "90%", md: "40%" });
+  const top = useBreakpointValue({ base: "90%", md: "30%" });
   const side = useBreakpointValue({ base: "30%", md: "40px" });
   const [slider, setSlider] = React.useState(imageArray);
 
