@@ -2,6 +2,8 @@ import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPane
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductsNow } from "../redux/ProductsStore/productsAction";
+import SingleProduct from "./SingleProduct";
+import { Link } from "react-router-dom";
 
 export default function Products() {
   const filterData=[
@@ -17,14 +19,14 @@ export default function Products() {
   
   // products card
   function productsCard(id,image,name,description,price,rating){
-    return <Box key={id} data-id={id}>
+    return <Link to={`/products/${id}`} ><Box key={id} data-id={id} >
       <Image _hover={{transform:'scale(1.01)'}} src={`${image}`} alt={name}/>
       <Text as='b'>{name}</Text>
       <Text noOfLines={1}>{description}</Text>
       <Text as={'b'}>₹{price}</Text>
       {rating>0? <Text>{rating}</Text>:'\n'}
       <Button data-id={id}>ADD</Button>
-    </Box>
+    </Box> </Link>
   }
 
   // filters
@@ -72,7 +74,7 @@ export default function Products() {
         </VStack>
         <Grid gridTemplateColumns={{base:'repeat(1,98%)',sm:'repeat(2,45%)',md:'repeat(3,25%)'}} m={'auto'} gap={'1%'}>
           {store.map((el)=>{
-            return productsCard(el.id,el.image[0],el.name,el.description,el.price,el.rating);
+            return productsCard(el.id,el.image[0],el.name,el.description,el.price,el.rating,el);
           })}
         </Grid>
     </Grid>
