@@ -25,7 +25,7 @@ import { getProductsNow } from '../redux/ProductsStore/productsAction';
   export default function SingleProduct() {
     const {id}=useParams();
     const store=useSelector((store)=>{
-      return store.productsReducer.data;
+      return store.productsReducer.data
     });
 
     const data=store.filter((el,ind)=>{
